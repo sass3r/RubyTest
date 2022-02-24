@@ -1,13 +1,6 @@
 def isPangram?(text)
-  contains = false
-  alphabet = ('a'..'z').to_a
-  words = text.split(' ');
-  alphabet.each do |char|
-    if words.include?(char)
-      contains = true
-    end
-  end
-  if contains
+  pangram = ('a'..'z').all? { |char| text.downcase.include?(char)}
+  if pangram
     puts "Pangram"
   else
     puts "Not Pangram"
